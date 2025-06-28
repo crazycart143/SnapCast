@@ -3,19 +3,23 @@ import VideoCard from "@/components/VideoCard";
 import { dummyCards } from "@/constants";
 import React from "react";
 
-const Page = () => {
+const page = async ({ params }: ParamsWithSearch) => {
+  const { id } = await params;
   return (
-    <main className="wrapper page">
-      <Header title="All Videos" subHeader="Public Library" />
-      <h1 className="font-karla">Welcome to LOOM CLONE!</h1>
+    <div className="wrapper page">
+      <Header
+        subHeader="keanujohnlariosa@gmail.com"
+        title="Keanu John Lariosa"
+        userImg="/assets/images/dummy.jpg"
+      />
 
       <section className="video-grid">
         {dummyCards.map((card) => (
           <VideoCard key={card.id} {...card} />
         ))}
       </section>
-    </main>
+    </div>
   );
 };
 
-export default Page;
+export default page;
